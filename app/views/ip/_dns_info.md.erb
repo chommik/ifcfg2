@@ -1,0 +1,7 @@
+<%- if @dns_status == :ok -%>
+DNS PTR: <%= @dns_result %>
+<%- elsif @dns_status == :timeout -%>
+DNS PTR: (query timed out)
+<%- elsif @dns_status == :error -%>
+DNS PTR: (error: <%= @dns_result %>)
+<%- end -%>

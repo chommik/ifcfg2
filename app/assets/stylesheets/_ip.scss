@@ -1,0 +1,32 @@
+@use "tables";
+@use "sass:color";
+@use "colors";
+
+#ip-address-table {
+  @include tables.responsive-table;
+  word-break: break-all;
+}
+
+@media (min-width: 768.01px) {
+  #ip-address-table td:first-child {
+    width: 40%;
+    padding-right: 30px;
+  }
+}
+
+
+.dns-error {
+  color: color.adjust(colors.$red, $blackness: 5%);
+}
+
+
+#your-dns {
+  text-align: center;
+  font-size: 2rem;
+}
+
+
+#your-ip {
+  text-align: center;
+  font-size: 2.5rem;
+}

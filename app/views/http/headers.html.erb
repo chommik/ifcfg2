@@ -1,0 +1,10 @@
+<h1>HTTP headers</h1>
+
+<table id="http-headers-table">
+  <% @headers.each do |header, value| %>
+    <tr>
+      <td class="header-name"><%= header %></td>
+      <td class="header-value"><%= value %></td>
+    </tr>
+  <% end %>
+</table>

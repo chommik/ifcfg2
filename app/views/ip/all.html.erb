@@ -1,0 +1,18 @@
+<h1>Your IP address</h1>
+
+<table id="ip-address-table">
+  <tr>
+    <td>IP address</td>
+    <td><%= @ip %></td>
+  </tr>
+  <tr>
+    <td>DNS</td>
+    <% if @dns_status == :ok %>
+      <td><%= @dns_result %></td>
+    <% elsif @dns_status == :error %>
+      <td class="dns-error"><%= @dns_result %></td>
+    <% elsif @dns_status == :timeout %>
+      <td class="dns-error">(timeout)</td>
+    <% end %>
+  </tr>
+</table>

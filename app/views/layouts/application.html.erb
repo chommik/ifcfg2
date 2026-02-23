@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= content_for(:title) || "ifcfg" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="ifcfg">
+  <meta name="mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+  <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+  <%= tag.link rel: "preload", href: asset_path("Inconsolata-VariableFont.ttf"), as: "font", type: "font/ttf", crossorigin: "anonymous" %>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <%# Includes all stylesheet files in app/assets/stylesheets %>
+  <%= stylesheet_link_tag :app %>
+</head>
+
+<body>
+<div id="main-container">
+  <div id="logo"><%= link_to 'ifcfg.pl', root_path %></div>
+
+  <nav>
+    <div class="nav-block">
+      <div class="nav-title">main</div>
+      <ul>
+        <li><%= link_to "#{root_path} (main page)", root_path %></li>
+      </ul>
+    </div>
+    <div class="nav-block">
+      <div class="nav-title">ip</div>
+      <ul>
+        <li><%= link_to nil, ip_path %></li>
+        <li><%= link_to nil, ip_all_path %></li>
+        <li><%= link_to nil, ip_dns_path %></li>
+      </ul>
+    </div>
+    <div class="nav-block">
+      <div class="nav-title">http</div>
+      <ul>
+        <li><%= link_to nil, http_headers_path %></li>
+      </ul>
+    </div>
+    <div class="nav-block">
+      <div class="nav-title">some title</div>
+      <p>
+        And maybe some text
+      </p>
+    </div>
+  </nav>
+
+  <main>
+    <div id="shortcuts">
+      URL: <%= url_for only_path: false %>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <div class="flex-spacer"></div>
+    <div id="additional-content">
+      <%= yield :additional %>
+      <div id="other-formats">
+        Other formats:
+        <ul>
+          <li><%= link_to nil, format: 'txt' %></li>
+          <li><%= link_to nil, format: 'md' %></li>
+          <li><%= link_to nil, format: 'json' %></li>
+        </ul>
+      </div>
+      <div id="also-curl">
+        Also available with curl:
+        <ul>
+          <li>
+            curl <%= url_for only_path: false %>
+            <span style="display: inline-block; width: 3em;"></span>
+            <i># auto-detection!</i>
+          </li>
+          <li>curl <%= url_for format: 'txt', only_path: false %></li>
+          <li>curl <%= url_for format: 'md', only_path: false %></li>
+          <li>curl <%= url_for format: 'json', only_path: false %></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  dupa
+</footer>
+</body>
+</html>

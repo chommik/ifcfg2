@@ -1,0 +1,20 @@
+@use "sass:color";
+
+$background: #080708;
+$blue: #3772FF;
+$red: #DF2935;
+$yellow: #FDCA40;
+$white: #FFFCF9;
+
+$black15: color.adjust($background, $lightness: 15%);
+
+$grey20: color.adjust($white, $blackness: 20%);
+$grey45: color.adjust($white, $blackness: 45%);
+
+@function grey($n) {
+  @return color.adjust($white, $blackness: $n * 1%);
+}
+
+@function black($n) {
+  @return color.adjust($background, $lightness: $n * 1%);
+}

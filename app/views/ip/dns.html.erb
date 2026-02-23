@@ -1,0 +1,8 @@
+<h1>Your DNS PTR record</h1>
+<% if @dns_status == :ok %>
+  <div id="your-dns"><%= @dns_result %></div>
+<% elsif @dns_status == :error %>
+  <div class="dns-error" id="your-dns"><%= @dns_result %></div>
+<% elsif @dns_status == :timeout %>
+  <div class="dns-error" id="your-dns">(timeout)</div>
+<% end %>

@@ -1,0 +1,13 @@
+<%= yield %>
+
+---------------------------------------------------------------------
+
+HTML version: <%= url_for format: nil, only_path: false %>
+
+$ curl <%= url_for format: nil, only_path: false %>
+
+Other formats:
+
+* <%= url_for format: 'txt', only_path: false %>
+* <%= url_for format: 'md', only_path: false %>
+* <%= url_for format: 'json', only_path: false %>

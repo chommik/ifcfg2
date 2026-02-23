@@ -1,0 +1,26 @@
+ifcfg
+=====
+
+Welcome to ifcfg.
+
+Your IP address is <%= @ip %>
+
+
+Other tools
+-----------
+<%- root_url_spaces = ' ' * root_url.length -%>
+
+<% [nil, :txt].each do |fmt| %>
+<%= root_url %>
+<%= root_url_spaces %><%= ip_path format: fmt %>
+<%= root_url_spaces %><%= ip_all_path format: fmt %>
+<%= root_url_spaces %><%= ip_dns_path format: fmt %>
+<%= root_url_spaces %><%= http_headers_path format: fmt %>
+
+<% end %>
+All supported formats:
+
+* `.md` for Markdown (this one!)
+* `.txt` for plain text format
+* `.html` for HTML (default when opened from a browser)
+* `.json` for JSON

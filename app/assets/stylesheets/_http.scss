@@ -1,0 +1,32 @@
+@use "colors";
+@use "tables";
+
+#http-headers-table {
+  @include tables.responsive-table;
+
+  word-break: break-all;
+
+  & .header-name {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 768px) {
+  #http-headers-table {
+    & tr:not(:last-child) {
+      border-bottom: 1px solid colors.grey(90);
+      padding: 5px 0;
+    }
+
+    & td.header-value {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (min-width: 768.01px) {
+  #http-headers-table .header-name {
+    width: 20%;
+  }
+}
+

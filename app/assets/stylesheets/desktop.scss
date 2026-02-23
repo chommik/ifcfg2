@@ -1,0 +1,12 @@
+@media (min-width: 576px) {
+  /* ---------- main content ---------- */
+  #main-container {
+    padding-top: 20px;
+
+    grid-template-columns: fit-content(30%) 10fr;
+    grid-template-rows: auto;
+    grid-template-areas: "logo logo"
+      "nav main";
+  }
+
+}

@@ -1,0 +1,12 @@
+@mixin responsive-table {
+  @at-root {
+    @media (max-width: 768px) {
+      & {
+        & tbody, & tr, & td {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
