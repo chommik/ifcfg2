@@ -97,8 +97,10 @@ a {
 footer {
   margin-top: auto;
   padding: 5px 10px;
+  color: colors.grey(30);
   background-color: color.adjust(colors.$background, $lightness: 10%);
   border-top: 1px solid rgba(colors.$white, 0.05);
+  font-size: 0.85rem;
 }
 
 /* ---------- logo ---------- */
