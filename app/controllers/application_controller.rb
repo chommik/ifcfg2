@@ -25,12 +25,14 @@ class ApplicationController < ActionController::Base
         k.delete_prefix("HTTP_").split("_").map(&:capitalize).join("-")
       }
       .excluding(
+        "Forwarded",
         "X-Forwarded-For",
-        "X-Forwarded-Proto",
         "X-Forwarded-Host",
         "X-Forwarded-Port",
-        "X-Real-ip",
-        "Forwarded",
+        "X-Forwarded-Proto",
+        "X-Real-Ip",
+        "X-Request-Id",
+        "X-Request-Start",
         )
   end
 end
